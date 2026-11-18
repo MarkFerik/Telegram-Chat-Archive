@@ -3,12 +3,12 @@ import json
 import os
 import re
 
-BASE_FOLDER = 'Сорт'
+BASE_FOLDER = 'variety'
 
 
 def main():
   if not os.path.exists(BASE_FOLDER):
-    print('❌ Папка Сорт не найдена!')
+    print('❌ Папка variety не найдена!')
     return
 
   chats_data = {}
@@ -18,7 +18,7 @@ def main():
   try:
     folders = sorted(os.listdir(BASE_FOLDER))
   except Exception as e:
-    print(f'❌ Ошибка чтения папки Сорт: {e}')
+    print(f'❌ Ошибка чтения папки variety: {e}')
     return
 
   for folder in folders:
