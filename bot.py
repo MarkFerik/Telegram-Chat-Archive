@@ -1,22 +1,22 @@
 import os
 from telethon import TelegramClient
 
-api_id = 2040
-api_hash = 'b18441a1ff607e10a989891a5462e627'
+api_id = "You Api_id"
+api_hash = 'Yoy Api_hash'
 
 client = TelegramClient('explorer_session', api_id, api_hash)
-BASE_FOLDER = 'Сорт'
+BASE_FOLDER = 'Variety'
 
 
 async def main():
-  print('🚀 Подключаемся к Telegram...')
+  print('🚀 Connecting to Telegram...')
   await client.start()
-  print('✅ Успешно вошли в аккаунт!')
+  print('✅Successfully logged into the account!')
 
   if not os.path.exists(BASE_FOLDER):
     os.makedirs(BASE_FOLDER)
 
-  print('⏳ Начинаем скачивание чатов...')
+  print('⏳ Starting chat download...')
 
   async for dialog in client.iter_dialogs():
     try:
@@ -30,7 +30,7 @@ async def main():
       if getattr(entity, 'last_name', None):
         name += f' {entity.last_name}'
 
-      print(f'📥 Скачиваю чат: {name}...')
+      print(f'📥 Downloading chat: {name}...')
 
       uid = str(dialog.id)
       safe_name = ''.join(
